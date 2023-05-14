@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./logo.png" type="image/x-icon">
+        <title>MARCELOFF.EU</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap'); * {
+                margin: 0;
+                padding: 0;
+                font-family: 'Lato', sans-serif;
+            }
+
+            ::-webkit-scrollbar {
+                display: none;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            body {
+                width: 100%;
+                height: 100vh;
+                background-color: rgb(243, 63, 63);
+                text-align: center;
+                opacity: 0;
+                animation-name: fade-in;
+                animation-duration: 1.5s;
+                animation-fill-mode: forwards;
+            }
+
+            body .asd {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            body .container {
+                transform: translateY(10px);
+                transition: transform 0.8s ease-in-out;
+            }
+
+            body .container p {
+                font-size: 33px;
+                color: white;
+            }
+
+            body .container p span {
+                color: rgb(50, 192, 45);
+                animation: cc 5s linear infinite;
+            }
+
+            @keyframes cc {
+                0% {
+                    color: rgb(99, 192, 45);
+                }
+
+                50% {
+                    color: rgb(45, 192, 155);
+                }
+
+                100% {
+                    color: rgb(45, 192, 89);
+                }
+            }
+
+            body .container .container-contact-area ul li {
+                list-style: none;
+                display: inline-block;
+                align-items: center;
+                margin: 25px 15px;
+            }
+
+            body .container .container-contact-area ul li a {
+                color: rgb(175, 175, 175);
+                font-size: 23px;
+                padding: 10px;
+                background-color: rgba(255, 255, 255, 0.082);
+                border-radius: 10px;
+                position: relative;
+                transition: .3s;
+            }
+
+            body .container .container-contact-area ul li a:hover {
+                color: rgb(231, 33, 149);
+                background-color: rgba(255, 255, 255, 0.027);
+            }
+
+            @keyframes fade-in {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            body .footer-textarea {
+                position: absolute;
+                bottom: 0;
+                margin-bottom: 20px;
+                color: white;
+                left: 0;
+                right: 0;
+            }
+
+            @media screen and (max-width: 00px) {
+                body {
+                    height: auto;
+                }
+
+                body .asd {
+                    position: static;
+                    transform: none;
+                }
+
+                body .container {
+                    transform: none;
+                }
+
+                body .container p {
+                    font-size: 28px;
+                }
+
+                body .container .container-contact-area ul li {
+                    display: block;
+                    margin: 25px 0;
+                }
+
+                body .footer-textarea {
+                    position: static;
+                    margin: 20px 0;
+                }
+
+                video {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        </style>
+        <script src="./script-ze791.js"></script>
+    </head>
+    <body>
+        <div class="asd">
+            <div class="container">
+                <p class="text">
+                    👋 Sziaa! Én <span>MarcAkaSkid</span> vagyok
+                </p>
+                <div class="container-contact-area">
+                    <ul>
+                        <li>
+                            <a href="https://discord.com/users/745527397943869522">
+                                <i class="fa-brands fa-discord"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/shaclervagyok" style="padding:10px 13px">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCq7Ksxupy7sKWEeK-7piYoA">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-textarea">
+            <p>
+                💖 Adri baba - <span id="igen"></span>
+            </p>
+        </div>
+    </body>
+    <script>
+        const startDate = new Date("2023-05-05T00:00:00+01:00");
+        const today = new Date();
+        const elapsedMonths = (today.getFullYear() - startDate.getFullYear()) * 12 + (today.getMonth() - startDate.getMonth());
+        document.getElementById("igen").innerHTML = elapsedMonths + " hónapja";
+        window.addEventListener('load', function() {
+            const text = document.querySelector('.container');
+            setTimeout(function() {
+                text.style.transform = 'translateY(0)';
+            }, 1);
+        });
+        let typed = '';
+        const code = 'sárga';
+        document.addEventListener('keydown', function(event) {
+            if (event.key === code[typed.length]) {
+                typed += event.key;
+                if (typed === code) {
+                    document.body.innerHTML = '';
+                    const video = document.createElement('video');
+                    video.src = './sarga.mp4';
+                    video.autoplay = true;
+                    video.loop = true;
+                    document.body.appendChild(video);
+                }
+            } else {
+                typed = '';
+            }
+        });
+    </script>
+</html>
